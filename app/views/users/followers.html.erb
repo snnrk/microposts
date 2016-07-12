@@ -1,0 +1,12 @@
+<% @user.followers.each do |f| %>
+    <div class="row">
+        <div class="col-md-4 offset-col-sm-4">
+            <section class="user_info">
+                <h1>
+                    <%= gravatar_for f %>
+                    <%= f.name %>
+                </h1>
+            </section>
+        </div>
+    </div>
+<% end %>
