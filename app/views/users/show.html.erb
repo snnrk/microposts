@@ -1,4 +1,19 @@
-<h1>
-    <%= gravatar_for @user %>
-    <%= @user.name %>
-</h1>
+<h1>Profile</h1>
+<div class="row">
+    <div class="col-xs-1 col-xs-offset-4">
+        <%= gravatar_for @user %>
+    </div>
+    <div class="col-xs-6">
+        <p><%= @user.name %> (<%= @user.email %>)</p>
+        <p><%= @user.region %></p>
+        <p><%= @user.url %></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-7 col-xs-offset-4">
+        <%= @user.description %>
+    </div>
+</div>
+<p class="text-center">
+    <%= link_to 'Update Profile', edit_user_path %>
+</p>
