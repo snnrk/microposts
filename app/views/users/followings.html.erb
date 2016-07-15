@@ -1,0 +1,14 @@
+<h1>Followings</h1>
+<% @user.following_users.each do |f| %>
+    <div class="row">
+        <%= render 'sidebar' %>
+        <div class="col-md-8">
+            <ol>
+                <li>
+                    <%= link_to gravatar_for(f, size: 50), f %>
+                    <span class="user"><%= link_to f.name, f %></span>
+                </li>  
+            </ol>
+        </div>
+    </div>
+<% end %>
