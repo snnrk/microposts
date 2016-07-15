@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   end
   
   def show
+    @microposts = @user.microposts.order(created_at: :desc)
   end
   
   def update
