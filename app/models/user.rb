@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     has_many :follower_relation_ships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
     has_many :follower_users, through: :follower_relation_ships, source: :follower
     
+    def feed_items
+        Micropost.where(user_id: following_user_ids + [self.id])
+    end
+    
     def follow(other_user)
         following_relationships.find_or_create_by(followed_id: other_user.id)
     end
