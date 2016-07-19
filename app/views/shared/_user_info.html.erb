@@ -1,4 +1,10 @@
-<%= link_to gravatar_for(current_user, size: 50), current_user %>
-<h1><%= current_user.name %></h1>
-<span><%= link_to "view my profile", current_user %></span>
-<span><%= pluralize(current_user.microposts.count, "micropost") %></span>
+<%= link_to gravatar_for(current_user, size: 50), user %>
+<h1><%= user.name %></h1>
+<% if current_user?(user) %>
+    <span><%= link_to "view my profile", user %></span>
+<% end %>
+<span>
+    <%= pluralize(user.microposts.count, "micropost") %>, 
+    <%= link_to pluralize(user.follower_users.count, 'follower'), follower_path(user.id) %>, 
+    <%= link_to pluralize(user.following_users.count, 'following'), following_path(user.id) %>
+</span>
