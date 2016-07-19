@@ -13,13 +13,13 @@ class UsersController < ApplicationController
   end
 
   def followers
-    @title = 'followers'
+    @title = I18n.t("dictionary.words.followers")
     @users = @user.follower_users
     render 'follow'
   end
 
   def followings
-    @title = 'followings'
+    @title = I18n.t("dictionary.words.followings")
     @users = @user.following_users
     render 'follow'
   end

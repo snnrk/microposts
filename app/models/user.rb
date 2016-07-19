@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
     validates :url, format: { with: VALID_URL_REGEX }, allow_blank: true
     has_secure_password
     has_many :microposts
-    validates :locale, inclusion: { in: ['en', 'ja'] }, allow_blank: true
+    validates :locale, inclusion: { in: I18n.available_locales.map{|l| l.to_s} }, allow_blank: true
 
     has_many :following_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
     has_many :following_users, through: :following_relationships, source: :followed

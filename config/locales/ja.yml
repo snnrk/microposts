@@ -1,2 +1,109 @@
 ja:
-    hello: "こんにちわ、世界"
+    # dictionary
+    dictionary:
+        actions:
+            delete: "削除する"
+            post: "送信する"
+        messages:
+            micropost: "新しい投稿を作ります"
+            posted_time_ago: "%{time_in_words}前に投稿されました"
+        words:
+            followers: "あなたをフォローしている人"
+            followings: "あなたがフォローしている人"
+            micropost: "Micropost"
+    # general
+    general:
+        follow: "フォローする"
+        unfollow: "フォロー解除する"
+    # models
+    activerecord:
+        models:
+            session: "セッション"
+            user: "ユーザ"
+        attributes:
+            user:
+                description: "自己紹介"
+        # errors
+        errors:
+            models:
+                user:
+                    blank: "が空です。"
+                    invalid: "が正しくありません。"
+                    too_long: "が長すぎます。"
+    attributes: &attributes
+        account: "アカウント"
+        confirmation: "確認"
+        created_at: "登録日時"
+        description: "説明"
+        email: "メールアドレス"
+        help: "ヘルプ"
+        home: "ホーム"
+        id: "ID"
+        login: "ログイン"
+        logout: "ログアウト"
+        name: "名前"
+        password: "パスワード"
+        password_confirmation: "パスワードの確認"
+        profile: "プロフィール"
+        region: "地域"
+        session: "セッション"
+        settings: "設定"
+        updated_at: "更新日時"
+        url: "URL"
+        user: "ユーザ"
+    <<: *attributes
+    # helpers
+    helpers:
+        submit:
+            create: "作成"
+            update: "更新"
+            users:
+    # views
+    layouts:
+        application:
+    shared:
+        user_info:
+            view_my_profile: "プロフィールを見る"
+    static_pages:
+        home:
+            title: "Micropostフィード"
+    users:
+        edit:
+            title: "プロフィール編集"
+    # misc
+    datetime:
+        distance_in_words:
+            half_a_minute: "30秒前後"
+            less_than_x_seconds:
+                one:   "1秒"
+                other: "%{count}秒"
+            x_seconds:
+                one:   "1秒"
+                other: "%{count}秒"
+            less_than_x_minutes:
+                one:   "1分"
+                other: "%{count}分"
+            x_minutes:
+                one:   "約1分"
+                other: "%{count}分"
+            about_x_hours:
+                one:   "約1時間"
+                other: "約%{count}時間"
+            x_days:
+                one:   "1日"
+                other: "%{count}日"
+            about_x_months:
+                one:   "約1ヶ月"
+                other: "約%{count}ヶ月"
+            x_months:
+                one:   "1ヶ月"
+                other: "%{count}ヶ月"
+            almost_x_years:
+                one:   "１年弱"
+                other: "%{count}年弱"
+            about_x_years:
+                one:   "約1年"
+                other: "約%{count}年"
+            over_x_years:
+                one:   "1年以上"
+                other: "%{count}年以上"

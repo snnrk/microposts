@@ -17,10 +17,10 @@ class ApplicationController < ActionController::Base
   end
   
   def set_locale
-    p config.i18n.inspect
-    #if logged_in?
-      #config.i18n.locale = current_user.locale.to_sym
-    #end
-    #config.i18n.locale ||= config.i18n.default_locale
+    if logged_in? && current_user.locale.present?
+      I18n.locale = current_user.locale.to_sym || I18n.default_locale
+    else
+      I18n.locale = I18n.default_locale
+    end
   end
 end
