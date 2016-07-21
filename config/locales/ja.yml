@@ -13,7 +13,9 @@ ja:
             micropost: "Micropost"
     # general
     general:
+        favorite: "お気に入りに追加する"
         follow: "フォローする"
+        unfavorite: "お気に入りから削除する"
         unfollow: "フォロー解除する"
     # models
     activerecord:

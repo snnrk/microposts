@@ -1,10 +1,30 @@
 <%= link_to gravatar_for(current_user, size: 50), user %>
-<h1><%= user.name %></h1>
 <% if current_user?(user) %>
-    <span><%= link_to t('.view_my_profile'), user %></span>
+    <h1><%= link_to user.name, user %></h1>
+<% else %>
+    <h1><%= user.name %></h1>
 <% end %>
-<span>
-    <%= pluralize(user.microposts.count, "micropost") %>, 
-    <%= link_to pluralize(user.follower_users.count, 'follower'), follower_path(user.id) %>, 
-    <%= link_to pluralize(user.following_users.count, 'following'), following_path(user.id) %>
-</span>
+<div>
+    <span class="glyphicon glyphicon-bookmark">
+        <%= link_to user.url, user.url %>
+    </span>
+    <br>
+    <span class="glyphicon glyphicon-map-marker">
+        <%= user.region %>
+    </span>
+    <br>
+    <span>
+        <%= user.description %>
+    </span>
+    <br>
+</div>
+<div>
+    <span>
+        <%= pluralize(user.microposts.count, "micropost") %>, 
+        <%= link_to pluralize(user.favorite_microposts.count, "favorite"), favorite_path(user.id) %>
+    </span>
+    <span>
+        <%= link_to pluralize(user.follower_users.count, 'follower'), follower_path(user.id) %>,
+        <%= link_to pluralize(user.following_users.count, 'following'), following_path(user.id) %>
+    </span>
+</div>

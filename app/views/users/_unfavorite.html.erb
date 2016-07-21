@@ -1,0 +1,5 @@
+<%= form_for(current_user.favorite_relationships.find_by(micropost_id: micropost.id), html: { method: :delete }, remote: true) do |f| %>
+    <%= button_tag(type: 'submit', class: "btn btn-primary btn-xs") do %>
+      <%= content_tag :span, nil, class: "glyphicon glyphicon-star" %>
+    <% end %>  
+<% end %>

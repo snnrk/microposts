@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :followers, :followings, :show, :update]
+  before_action :set_user, only: [:edit, :favorites, :followers, :followings, :show, :update]
   before_action :check_current_user, only: [:edit, :update]
   
   def create
@@ -11,7 +11,11 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-
+  
+  def favorites
+    @favorites = @user.favorite_microposts
+  end
+  
   def followers
     @title = I18n.t("dictionary.words.followers")
     @users = @user.follower_users
@@ -24,7 +28,6 @@ class UsersController < ApplicationController
     render 'follow'
   end
 
-  
   def edit
   end
   

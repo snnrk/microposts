@@ -33,8 +33,8 @@ module Microposts
     config.action_view.embed_authenticity_token_in_remote_forms = true
     
     # for I18n
-    config.i18n.avaiable_locales = %i(ja en)
-    config.i18n.enforce_avaiable_locales = true
+    config.i18n.available_locales = %i(ja en)
+    config.i18n.enforce_available_locales = true
     config.i18n.default_locale = :ja
   end
 end

@@ -1,0 +1,11 @@
+<div class="row">
+    <%= render 'sidebar' %>
+    <div class="col-md-8">
+        <% if @favorites.any? %>
+            <h3><%= @title %></h3>
+            <ol class="favorite">
+                <%= render @favorites %>
+            </ol>
+        <% end %>
+    </div>
+</div>

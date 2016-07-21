@@ -14,22 +14,38 @@ class User < ActiveRecord::Base
     has_many :following_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
     has_many :following_users, through: :following_relationships, source: :followed
 
-    has_many :follower_relation_ships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
-    has_many :follower_users, through: :follower_relation_ships, source: :follower
+    has_many :follower_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+    has_many :follower_users, through: :follower_relationships, source: :follower
+    
+    has_many :favorite_relationships, class_name: "Favorite", foreign_key: "user_id", dependent: :destroy
+    has_many :favorite_microposts, through: :favorite_relationships, source: :micropost
 
     def feed_items
         Micropost.where(user_id: following_user_ids + [self.id])
     end
 
+    def favorite(micropost)
+        favorite_relationships.find_or_create_by(micropost_id: micropost.id)
+    end
+    
     def follow(other_user)
         following_relationships.find_or_create_by(followed_id: other_user.id)
     end
 
+    def unfavorite(micropost)
+        favorite_relationship = favorite_relationships.find_or_create_by(micropost_id: micropost.id)
+        favorite_relationship.destroy if favorite_relationship
+    end
+    
     def unfollow(other_user)
         following_relationship = following_relationships.find_or_create_by(followed_id: other_user.id)
         following_relationship.destroy if following_relationship
     end
 
+    def favorited?(micropost)
+        favorite_microposts.include?(micropost)
+    end
+    
     def following?(other_user)
         following_users.include?(other_user)
     end
