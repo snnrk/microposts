@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Welcome to the Sample App!"
+      session[:user_id] = @user.id
       redirect_to @user
     else
       render 'new'
@@ -55,7 +56,7 @@ class UsersController < ApplicationController
   end
   
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) || current_user
   end
   
   def user_params
