@@ -8,6 +8,7 @@ ja:
             micropost: "新しい投稿を作ります"
             posted_time_ago: "%{time_in_words}前に投稿されました"
         words:
+            favorites: "お気に入り"
             followers: "あなたをフォローしている人"
             followings: "あなたがフォローしている人"
             micropost: "Micropost"

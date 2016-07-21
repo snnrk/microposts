@@ -1,4 +1,4 @@
-<%= link_to gravatar_for(current_user, size: 50), user %>
+<%= link_to gravatar_for(user, size: 50), user %>
 <% if current_user?(user) %>
     <h1><%= link_to user.name, user %></h1>
 <% else %>
@@ -6,7 +6,7 @@
 <% end %>
 <div>
     <span class="glyphicon glyphicon-bookmark">
-        <%= link_to user.url, user.url %>
+        <%= link_to user.url.to_s, user.url %>
     </span>
     <br>
     <span class="glyphicon glyphicon-map-marker">
