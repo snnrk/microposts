@@ -33,12 +33,12 @@ class User < ActiveRecord::Base
     end
 
     def unfavorite(micropost)
-        favorite_relationship = favorite_relationships.find_or_create_by(micropost_id: micropost.id)
+        favorite_relationship = favorite_relationships.find_by(micropost_id: micropost.id)
         favorite_relationship.destroy if favorite_relationship
     end
     
     def unfollow(other_user)
-        following_relationship = following_relationships.find_or_create_by(followed_id: other_user.id)
+        following_relationship = following_relationships.find_by(followed_id: other_user.id)
         following_relationship.destroy if following_relationship
     end
 
