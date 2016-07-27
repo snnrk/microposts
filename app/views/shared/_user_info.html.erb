@@ -21,10 +21,10 @@
 <div>
     <span>
         <%= pluralize(user.microposts.count, "micropost") %>, 
-        <%= link_to pluralize(user.favorite_microposts.count, "favorite"), favorite_path(user.id) %>
+        <%= link_to pluralize(user.favorite_microposts.count, "favorite"), favorites_user_path(user.id) %>
     </span>
     <span>
-        <%= link_to pluralize(user.follower_users.count, 'follower'), follower_path(user.id) %>,
-        <%= link_to pluralize(user.following_users.count, 'following'), following_path(user.id) %>
+        <%= link_to pluralize(user.follower_users.count, 'follower'), followers_user_path(user.id) %>,
+        <%= link_to pluralize(user.following_users.count, 'following'), followings_user_path(user.id) %>
     </span>
 </div>
