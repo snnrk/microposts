@@ -15,7 +15,6 @@ class FavoritesController < ApplicationController
         @user = User.find(params[:id])
         @micropost = @user.microposts.build
         @feed_items = @user.favorite_microposts.order(created_at: :desc)
-        @title = t('dictionary.words.favorites')
         render 'static_pages/home'
     end
 end
