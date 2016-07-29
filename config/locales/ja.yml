@@ -33,6 +33,7 @@ ja:
                     blank: "が空です。"
                     invalid: "が正しくありません。"
                     too_long: "が長すぎます。"
+                    taken: "はすでに登録されています。"
     attributes: &attributes
         account: "アカウント"
         confirmation: "確認"
